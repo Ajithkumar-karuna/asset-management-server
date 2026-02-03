@@ -1,3 +1,4 @@
+
 const { Sequelize } = require('sequelize');
 const config = require('../config/database');
 
@@ -16,9 +17,12 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+
 db.Employee = require('./employee.model')(sequelize, Sequelize);
 db.Asset = require('./asset.model')(sequelize, Sequelize);
 db.Category = require('./category.model')(sequelize, Sequelize);
+db.Transaction = require('./transaction.model')(sequelize, Sequelize);
+
 
 db.Asset.belongsTo(db.Category, {
   foreignKey: 'categoryId',
